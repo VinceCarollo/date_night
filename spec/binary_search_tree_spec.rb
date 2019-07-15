@@ -32,4 +32,36 @@ RSpec.describe BinarySearchTree do
     expect(@tree.depth_of(0)).to be nil
   end
 
+  it "can get max value in tree" do
+    expected = { "Sharknado 3" => 92 }
+
+    expect(@tree.max).to eq(expected)
+  end
+
+  it "can get min value in tree" do
+    expected = { "Johnny English" => 16 }
+
+    expect(@tree.min).to eq(expected)
+  end
+
+  it "can load txt files" do
+    expect(@tree.load('movies.txt')).to eq(99)
+
+    expected = { "The Little Engine That Could" => 100 }
+
+    expect(@tree.max).to eq(expected)
+  end
+
+  xit "can sort whole tree" do
+    expect = [
+               {"Johnny English"=>16},
+               {"Hannibal Buress: Animal Furnace"=>50},
+               {"Bill & Ted's Excellent Adventure"=>61},
+               {"Sharknado 3"=>92}
+             ]
+
+    expect(@tree.sort).to eq(expected)
+  end
+
+
 end

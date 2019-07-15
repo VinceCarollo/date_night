@@ -72,4 +72,49 @@ class BinarySearchTree
     end
   end
 
+  def max
+    pointer = @head
+    until pointer.right.nil?
+      pointer = pointer.right
+    end
+    { pointer.title => pointer.value }
+  end
+
+  def min
+    pointer = @head
+    until pointer.left.nil?
+      pointer = pointer.left
+    end
+    { pointer.title => pointer.value }
+  end
+
+  def load(path)
+    movie_count = 0
+    File.readlines('movies.txt').each do |line|
+      movie_count += 1
+      movie_data = line.gsub("\n", '').split(', ')
+      insert(movie_data[0].to_i, movie_data[1])
+    end
+    movie_count
+  end
+
+  def sort
+    sorted = {}
+    sorted[@head.title] = @head.value
+    pointer = @head
+    until pointer.left.nil?
+      pointer = pointer.left
+      sorted[pointer.title] = pointer.value
+    end
+    pointer = @head
+    until pointer.right.nil?
+      pointer = pointer.right
+      sorted[pointer.title] = pointer.value
+      if pointer.left
+        sorted[pointer.title] = pointer.value
+      end
+    end
+    binding.pry
+  end
+
 end
