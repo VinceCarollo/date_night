@@ -53,4 +53,23 @@ class BinarySearchTree
     pointer.value == value
   end
 
+  def depth_of(value)
+    depth = 0
+    pointer = @head
+    until pointer.nil? || pointer.value == value
+      if value < pointer.value
+        pointer = pointer.left
+        depth += 1
+      else
+        pointer = pointer.right
+        depth += 1
+      end
+    end
+    if pointer.nil?
+      nil
+    else
+      depth
+    end
+  end
+
 end

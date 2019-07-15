@@ -25,4 +25,11 @@ RSpec.describe BinarySearchTree do
     expect(@tree.include?(72)).to be false
     expect(@tree.include?(50)).to be true
   end
+
+  it "can find depth of value" do
+    expect(@tree.depth_of(92)).to eq(1)
+    expect(@tree.depth_of(50)).to eq(2)
+    expect(@tree.depth_of(0)).to be nil
+  end
+
 end
