@@ -47,9 +47,11 @@ RSpec.describe BinarySearchTree do
   it "can load txt files" do
     expect(@tree.load('movies.txt')).to eq(99)
 
-    expected = { "The Little Engine That Could" => 100 }
+    max_expected = { "The Little Engine That Could" => 100 }
+    min_expected = { "Cruel Intentions" => 0 }
 
-    expect(@tree.max).to eq(expected)
+    expect(@tree.max).to eq(max_expected)
+    expect(@tree.min).to eq(min_expected)
   end
 
   xit "can sort whole tree" do
