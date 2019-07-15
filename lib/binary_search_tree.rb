@@ -114,7 +114,6 @@ class BinarySearchTree
         sorted[pointer.title] = pointer.value
       end
     end
-    binding.pry
   end
 
 end
